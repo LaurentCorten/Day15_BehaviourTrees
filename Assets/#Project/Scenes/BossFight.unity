@@ -361,6 +361,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1477715771}
     m_Modifications:
+    - target: {fileID: 7559006615654855928, guid: afc326e2bcb93ee4cbb7cf8d2ae9b097, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7559006615654855929, guid: afc326e2bcb93ee4cbb7cf8d2ae9b097, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1118,11 +1122,11 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 4645555404788990116
   - rid: 4645555404788990245
-  - rid: 4645555406466974389
   - rid: 4645555406466974390
   - rid: 4645555489608040716
   - rid: 622841667297477390
-  - rid: 622841667875242779
+  - rid: 622841822920049121
+  - rid: 622841822920049122
   m_OriginalGraph: {fileID: 75831002144858980, guid: 7911121c04800244ea8e51442893088e, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -1137,7 +1141,7 @@ MonoBehaviour:
           m_Value1: 16821086225120154010
         Name: MaceImpact
         m_Value: {fileID: 1904546466}
-    - rid: 622841667875242779
+    - rid: 622841822920049121
       type: {class: 'BlackboardVariable`1[[Core.Combat.Weapon, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -1145,6 +1149,14 @@ MonoBehaviour:
           m_Value1: 12159803212682547442
         Name: Wave
         m_Value: {fileID: 11400000, guid: 0977fc11660b78d4ca2e62934c477791, type: 2}
+    - rid: 622841822920049122
+      type: {class: 'BlackboardVariable`1[[SpawnObjects, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5298822750158018843
+          m_Value1: 13424246812579824220
+        Name: SpawnObjectsChannel
+        m_Value: {fileID: 11400000, guid: c2702747656bca440ae138a6aff5c5ec, type: 2}
     - rid: 4645555404788990116
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -1161,14 +1173,6 @@ MonoBehaviour:
           m_Value1: 1326731621043114345
         Name: Animator
         m_Value: {fileID: 1173233106}
-    - rid: 4645555406466974389
-      type: {class: 'BlackboardVariable`1[[SpawnObjects, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 5298822750158018843
-          m_Value1: 13424246812579824220
-        Name: SpawnObjectsChannel
-        m_Value: {fileID: 11400000, guid: c2702747656bca440ae138a6aff5c5ec, type: 2}
     - rid: 4645555406466974390
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -1900,9 +1904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.VisualScripting.Flow::Unity.VisualScripting.ScriptMachine
   _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: bc043e5ccaaa97f409e3ae17ed05cf99, type: 2}
+    _json: '{"nest":{"source":"Macro","macro":null,"embed":null}}'
+    _objectReferences: []
 --- !u!114 &2092261350
 MonoBehaviour:
   m_ObjectHideFlags: 0

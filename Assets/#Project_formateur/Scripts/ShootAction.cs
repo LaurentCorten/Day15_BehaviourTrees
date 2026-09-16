@@ -7,7 +7,7 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "Shoot", story: "[Agent] shoots [Weapon] from [Origin]", category: "Action/Boss Fight", id: "c239eff85a3de79a8d2de5af1737566d")]
+[NodeDescription(name: "Shoot", story: "[Agent] shoots [Weapon] from [Origin]", category: "Action", id: "c239eff85a3de79a8d2de5af1737566d")]
 public partial class ShootAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
