@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: 75831002144858980, guid: 6a1516467f13e174088c5aa9bfd83da1, type: 2}
+  m_Graph: {fileID: 75831002144858980, guid: 7911121c04800244ea8e51442893088e, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 4645555404788990116
   - rid: 4645555404788990245
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   - rid: 4645555489608040716
   - rid: 622841667297477390
   - rid: 622841667875242779
-  m_OriginalGraph: {fileID: 0}
+  m_OriginalGraph: {fileID: 75831002144858980, guid: 7911121c04800244ea8e51442893088e, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
