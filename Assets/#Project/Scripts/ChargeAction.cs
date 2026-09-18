@@ -4,6 +4,7 @@ using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static Unity.U2D.Physics.PhysicsShape;
 using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
@@ -33,7 +34,7 @@ public partial class ChargeAction : Action
         {
             return Status.Failure;
         }
-
+        Debug.Log("START");
         return Initialize();
     }
 
@@ -57,24 +58,30 @@ public partial class ChargeAction : Action
                 Speed, distance);
         }
 
-        ColliderArray2D contactColliders = _coll.GetContactColliders(_contactFilter);
-        Debug.Log(contactColliders.ToLineSeparatedString());
+        var contactCollider = Physics2D.OverlapBox(_coll.bounds.center, _coll.bounds.size, 0, _layerMask );
+        if (contactCollider != null && contactCollider != _coll)
+        {
+            Debug.Log(contactCollider.ToSafeString());
+            return Status.Success;
+        }
 
         UpdateAnimatorSpeed();
 
         return Status.Running;
     }
 
-    //public void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    Debug.Log(col.ToString());
-    //    Debug.Log("OnCollisionEnter2D");
-    //}
 
     protected override void OnEnd()
     {
         UpdateAnimatorSpeed(0f);
         m_Animator = null;
+        _coll = null;
+        _layerMask = 0;
+        _startMovePosition = default;
+        _endMovePosition = default;
+
+        Debug.Log("END");
+
     }
 
     private Status Initialize()
@@ -82,7 +89,7 @@ public partial class ChargeAction : Action
         m_Animator = Agent.Value.GetComponentInChildren<Animator>();
         UpdateAnimatorSpeed(0f);
         _coll = Agent.Value.GetComponentInChildren<Collider2D>();
-        _layerMask = LayerMask.GetMask(layers);
+        _layerMask = ~LayerMask.GetMask(layers);
         _contactFilter = ContactFilter2D.noFilter;
         _contactFilter.useLayerMask = true;
         _contactFilter.layerMask = _layerMask;
