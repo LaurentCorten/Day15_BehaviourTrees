@@ -21,7 +21,10 @@ public partial class ChargeAction : Action
     private float m_CurrentSpeed;
     private Vector3 _startMovePosition;
     private Vector3 _endMovePosition;
-    private Collider2D coll;
+    private Collider2D _coll;
+    private LayerMask _layerMask;
+    private ContactFilter2D _contactFilter;
+    private string[] layers = new string[] { "Floor" };
 
 
     protected override Status OnStart()
@@ -54,16 +57,20 @@ public partial class ChargeAction : Action
                 Speed, distance);
         }
 
+        ColliderArray2D contactColliders = _coll.GetContactColliders(_contactFilter);
+        Debug.Log(contactColliders.ToLineSeparatedString());
+
         UpdateAnimatorSpeed();
 
         return Status.Running;
     }
 
-    public Status OnCollisionEnter2D(Collision2D col)
-    {
-        Debug.Log(col.ToString());
-        return Status.Success;
-    }
+    //public void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    Debug.Log(col.ToString());
+    //    Debug.Log("OnCollisionEnter2D");
+    //}
+
     protected override void OnEnd()
     {
         UpdateAnimatorSpeed(0f);
@@ -74,6 +81,11 @@ public partial class ChargeAction : Action
     {
         m_Animator = Agent.Value.GetComponentInChildren<Animator>();
         UpdateAnimatorSpeed(0f);
+        _coll = Agent.Value.GetComponentInChildren<Collider2D>();
+        _layerMask = LayerMask.GetMask(layers);
+        _contactFilter = ContactFilter2D.noFilter;
+        _contactFilter.useLayerMask = true;
+        _contactFilter.layerMask = _layerMask;
 
         _startMovePosition = Agent.Value.transform.position;
         Vector3 moveDir = (_endMovePosition - _startMovePosition).normalized;

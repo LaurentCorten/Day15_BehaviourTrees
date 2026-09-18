@@ -15,4 +15,4 @@ MonoBehaviour:
   weaponTransform: {fileID: 0}
   projectilePrefab: {fileID: 3999754718482582965, guid: 15c80a6f77e98844da34bdf25a6b30d3, type: 3}
   horizontalForce: 5
-  verticalForce: 4
+  verticalForce: 0
